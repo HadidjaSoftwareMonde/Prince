@@ -1,0 +1,67 @@
+{
+  "name": "lettre",
+  "version": "1.0.0",
+  "description": "My first chatting app",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron .",
+    "build": "electron-builder"
+  },
+  "keywords": [
+    "chatting",
+    "lettre",
+    "prince"
+  ],
+  "author": "Nathalie Prince",
+  "license": "ISC",
+  "dependencies": {
+    
+  },
+  "devDependencies": {
+    "electron-builder": "^24.6.0",
+    "electron": "^36.2.0"
+  },
+  "build": {
+    "appId": "com.hadidjasoftwaremonde.lettre",
+    "productName": "Lettre",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "index.js",
+      "public/**/*",
+      "!**/node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme}",
+      "!**/node_modules/*/test{,s}/**",
+      "!**/*.map"
+    ],
+    "extraResources": [
+      {
+        "from": "assets/",
+        "to": "assets",
+        "filter": ["**/*"]
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64", "ia32"]
+        }
+      ]
+    },
+    "mac": {
+      "target": ["dmg"],
+      "category": "public.app-category.social-networking"
+    },
+    "linux": {
+      "target": ["AppImage"],
+      "category": "Chat"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": true,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}
